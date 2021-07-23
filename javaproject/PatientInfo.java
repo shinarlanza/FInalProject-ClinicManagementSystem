@@ -348,7 +348,9 @@ public class PatientInfo extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "Information updated successfully!");
             }
         }
-        catch(SQLException ex){}
+        catch(SQLException error){
+            Logger.getLogger(PatientInfo.class.getName()).log(Level.SEVERE, null, error);
+        }
         
         
     }//GEN-LAST:event_jButtonUpdateActionPerformed
@@ -399,9 +401,9 @@ public class PatientInfo extends javax.swing.JFrame {
             public void run() {
                 try {
                     new PatientInfo().setVisible(true);
-                } catch (SQLException ex) {
+                } catch (SQLException error) {
                     Logger.getLogger(PatientInfo.class.getName())
-                        .log(Level.SEVERE, null, ex);
+                        .log(Level.SEVERE, null, error);
                 }
             }
         });
