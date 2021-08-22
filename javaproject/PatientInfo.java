@@ -316,9 +316,11 @@ public class PatientInfo extends javax.swing.JFrame {
     private void jButtonCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelActionPerformed
         try {
             new main().setVisible(true);
-        } catch (SQLException ex) {
+        } 
+        
+        catch (SQLException error) {
             Logger.getLogger(PatientInfo.class.getName())
-                .log(Level.SEVERE, null, ex);
+                .log(Level.SEVERE, null, error);
         }
     }//GEN-LAST:event_jButtonCancelActionPerformed
 
@@ -336,23 +338,23 @@ public class PatientInfo extends javax.swing.JFrame {
         String bloodType = jTextFieldBloodType.getText();
         String gender = jTextFieldGender.getText();
         
-        try{
-            if(name.equals("") && username.equals("") && password.equals("") &&
+        try {
+            if (name.equals("") && username.equals("") && password.equals("") &&
                birthdate.equals("") && address.equals("")&& 
                contact.equals("") && bloodType.equals("") && gender.equals("")){
                JOptionPane.showMessageDialog(this, "Please fill all the fields!");
             }
-            else{
+            
+            else {
                 database.updateInfo(name, username, password, age, birthdate, 
                     contact, address, bloodType, gender,currentUname);
                 JOptionPane.showMessageDialog(this, "Information updated successfully!");
             }
         }
+        
         catch(SQLException error){
             Logger.getLogger(PatientInfo.class.getName()).log(Level.SEVERE, null, error);
-        }
-        
-        
+        }   
     }//GEN-LAST:event_jButtonUpdateActionPerformed
 
     private void jComboBoxBloodTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxBloodTypeActionPerformed
@@ -385,14 +387,22 @@ public class PatientInfo extends javax.swing.JFrame {
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(PatientInfo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(PatientInfo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(PatientInfo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(PatientInfo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } 
+        
+        catch (ClassNotFoundException error) {
+            java.util.logging.Logger.getLogger(PatientInfo.class.getName()).log(java.util.logging.Level.SEVERE, null, error);
+        } 
+        
+        catch (InstantiationException error) {
+            java.util.logging.Logger.getLogger(PatientInfo.class.getName()).log(java.util.logging.Level.SEVERE, null, error);
+        } 
+        
+        catch (IllegalAccessException error) {
+            java.util.logging.Logger.getLogger(PatientInfo.class.getName()).log(java.util.logging.Level.SEVERE, null, error);
+        } 
+        
+        catch (javax.swing.UnsupportedLookAndFeelException error) {
+            java.util.logging.Logger.getLogger(PatientInfo.class.getName()).log(java.util.logging.Level.SEVERE, null, error);
         }
         //</editor-fold>
 
@@ -401,7 +411,9 @@ public class PatientInfo extends javax.swing.JFrame {
             public void run() {
                 try {
                     new PatientInfo().setVisible(true);
-                } catch (SQLException error) {
+                } 
+                
+                catch (SQLException error) {
                     Logger.getLogger(PatientInfo.class.getName())
                         .log(Level.SEVERE, null, error);
                 }
