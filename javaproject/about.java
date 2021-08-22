@@ -147,8 +147,10 @@ public class about extends javax.swing.JFrame {
         try {
             setVisible(false);
             new main().setVisible(true);
-        } catch (SQLException ex) {
-            Logger.getLogger(about.class.getName()).log(Level.SEVERE, null, ex);
+        } 
+       
+       catch (SQLException error) {
+            Logger.getLogger(about.class.getName()).log(Level.SEVERE, null, error);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -168,14 +170,22 @@ public class about extends javax.swing.JFrame {
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(about.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(about.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(about.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(about.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } 
+       
+       catch (ClassNotFoundException error) {
+            java.util.logging.Logger.getLogger(about.class.getName()).log(java.util.logging.Level.SEVERE, null, error);
+        } 
+       
+       catch (InstantiationException error) {
+            java.util.logging.Logger.getLogger(about.class.getName()).log(java.util.logging.Level.SEVERE, null, error);
+        } 
+       
+       catch (IllegalAccessException error) {
+            java.util.logging.Logger.getLogger(about.class.getName()).log(java.util.logging.Level.SEVERE, null, error);
+        } 
+       
+       catch (javax.swing.UnsupportedLookAndFeelException error) {
+            java.util.logging.Logger.getLogger(about.class.getName()).log(java.util.logging.Level.SEVERE, null, error);
         }
         //</editor-fold>
 
