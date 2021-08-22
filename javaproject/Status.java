@@ -56,10 +56,12 @@ public class Status extends javax.swing.JFrame {
                 {null, null, null, null},
                 {null, null, null, null}
             },
+            
             new String [] {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        
         jScrollPane1.setViewportView(jTable1);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -155,31 +157,35 @@ public class Status extends javax.swing.JFrame {
         
         String databaseName = "clinicms";
         String url = "jdbc:mysql://localhost:3306/" + databaseName;
-        try{
+        
+        try {
             Connection connection = DriverManager.getConnection(url,"root","");
             String query = "SELECT * FROM `appointment` WHERE Patient_Name ='"+patientAppointment+"'";
             PreparedStatement statement = connection.prepareStatement(query);            
             ResultSet result=statement.executeQuery();
             jTable1.setModel(DbUtils.resultSetToTableModel(result));
             
-            if(!result.first()){
+            if (!result.first()){
                  JOptionPane.showMessageDialog(this, "Patient name not found!");
             }
-            else{                 
+            
+            else {                 
                  jTextFieldSearch.setEditable(true);
                  flag=1;
             }
         }
-        catch(SQLException ex){
-            JOptionPane.showMessageDialog(null,ex);
+        
+        catch (SQLException error){
+            JOptionPane.showMessageDialog(null,error);
         }
     }//GEN-LAST:event_jButtonSearchActionPerformed
 
     private void jButtonCANCELActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCANCELActionPerformed
         try {
             new main().setVisible(true);
-        } catch (SQLException ex) {
-            Logger.getLogger(Status.class.getName()).log(Level.SEVERE, null, ex);
+        } 
+        catch (SQLException error) {
+            Logger.getLogger(Status.class.getName()).log(Level.SEVERE, null, error);
         }
     }//GEN-LAST:event_jButtonCANCELActionPerformed
 
@@ -187,16 +193,17 @@ public class Status extends javax.swing.JFrame {
          String patientAppointment = jTextFieldSearch.getText().substring(0,1)
                 .toUpperCase()+ jTextFieldSearch.getText().substring(1);
          
-        try{
-           database.cancelAppointment(patientAppointment);
-           int a=JOptionPane.showConfirmDialog(null, "Cancel appointment?","Select",JOptionPane.YES_NO_OPTION);
-           if(a==0){
+        try {
+            database.cancelAppointment(patientAppointment);
+            int a = JOptionPane.showConfirmDialog(null, "Cancel appointment?","Select",JOptionPane.YES_NO_OPTION);
+            
+            if (a == 0) {
                JOptionPane.showMessageDialog(this, "Appointment CANCELED!");
            }
            
         }
-        catch(SQLException ex){
-            JOptionPane.showMessageDialog(null, ex);
+        catch (SQLException error) {
+            JOptionPane.showMessageDialog(null, error);
         }
             
             
@@ -218,14 +225,22 @@ public class Status extends javax.swing.JFrame {
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Status.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Status.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Status.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Status.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } 
+        
+        catch (ClassNotFoundException error) {
+            java.util.logging.Logger.getLogger(Status.class.getName()).log(java.util.logging.Level.SEVERE, null, error);
+        } 
+        
+        catch (InstantiationException error) {
+            java.util.logging.Logger.getLogger(Status.class.getName()).log(java.util.logging.Level.SEVERE, null, error);
+        } 
+        
+        catch (IllegalAccessException error) {
+            java.util.logging.Logger.getLogger(Status.class.getName()).log(java.util.logging.Level.SEVERE, null, error);
+        } 
+        
+        catch (javax.swing.UnsupportedLookAndFeelException error) {
+            java.util.logging.Logger.getLogger(Status.class.getName()).log(java.util.logging.Level.SEVERE, null, error);
         }
         //</editor-fold>
 
@@ -234,8 +249,10 @@ public class Status extends javax.swing.JFrame {
             public void run() {
                 try {
                     new Status().setVisible(true);
-                } catch (SQLException ex) {
-                    Logger.getLogger(Status.class.getName()).log(Level.SEVERE, null, ex);
+                } 
+                
+                catch (SQLException error) {
+                    Logger.getLogger(Status.class.getName()).log(Level.SEVERE, null, error);
                 }
             }
         });
