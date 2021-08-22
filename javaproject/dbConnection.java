@@ -76,7 +76,7 @@ public class dbConnection {
     public static boolean ifUsernameExist(String username) throws SQLException{
         boolean unExst = false;
         
-        try{
+        try {
             String databaseName = "clinicms";
             String url = "jdbc:mysql://localhost:3306/" + databaseName;
             
@@ -87,17 +87,20 @@ public class dbConnection {
             statement.setString(1, username);
             ResultSet result = statement.executeQuery();
             
-            if(result.next()) {
+            if (result.next()) {
                 System.out.println("Username already exists");
                 unExst = true;
             }
         }
-        catch(SQLException ex){
-            System.out.println("SQL Exception: "+ ex.toString());
+        
+        catch (SQLException error){
+            System.out.println("SQL Exception: "+ error.toString());
         }
-        catch(ClassNotFoundException cE){
-            System.out.println("Class Not Found Exception: "+ cE.toString());    
+        
+        catch(ClassNotFoundException error){
+            System.out.println("Class Not Found Exception: "+ error.toString());    
         }
+        
         return unExst;
     } 
          
