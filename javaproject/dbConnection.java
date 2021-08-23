@@ -94,11 +94,11 @@ public class dbConnection {
         }
         
         catch (SQLException error){
-            System.out.println("SQL Exception: "+ error.toString());
+            Logger.getLogger(about.class.getName()).log(Level.SEVERE, null, error);
         }
         
         catch(ClassNotFoundException error){
-            System.out.println("Class Not Found Exception: "+ error.toString());    
+            Logger.getLogger(about.class.getName()).log(Level.SEVERE, null, error);  
         }
         
         return unExst;
