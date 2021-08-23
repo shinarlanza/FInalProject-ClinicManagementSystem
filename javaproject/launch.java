@@ -165,7 +165,8 @@ public class launch extends javax.swing.JFrame {
         try{
            new login().setVisible(true); 
         }
-        catch (SQLException ex){
+        catch (SQLException error){
+            Logger.getLogger(about.class.getName()).log(Level.SEVERE, null, error);
             
         }
         
@@ -175,9 +176,8 @@ public class launch extends javax.swing.JFrame {
         try {
            new register().setVisible(true);
         } 
-        catch (SQLException ex) {
-            Logger.getLogger(launch.class.getName())
-                .log(Level.SEVERE, null, ex);
+        catch (SQLException error) {
+            Logger.getLogger(launch.class.getName()).log(Level.SEVERE, null, error);
         }
     }//GEN-LAST:event_btnRegActionPerformed
 
@@ -197,14 +197,22 @@ public class launch extends javax.swing.JFrame {
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(launch.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(launch.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(launch.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(launch.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } 
+        
+        catch (ClassNotFoundException error) {
+            java.util.logging.Logger.getLogger(launch.class.getName()).log(java.util.logging.Level.SEVERE, null, error);
+        } 
+        
+        catch (InstantiationException error) {
+            java.util.logging.Logger.getLogger(launch.class.getName()).log(java.util.logging.Level.SEVERE, null, error);
+        } 
+        
+        catch (IllegalAccessException error) {
+            java.util.logging.Logger.getLogger(launch.class.getName()).log(java.util.logging.Level.SEVERE, null, error);
+        } 
+        
+        catch (javax.swing.UnsupportedLookAndFeelException error) {
+            java.util.logging.Logger.getLogger(launch.class.getName()).log(java.util.logging.Level.SEVERE, null, error);
         }
         //</editor-fold>
 
@@ -214,9 +222,8 @@ public class launch extends javax.swing.JFrame {
                 try {
                 new launch().setVisible(true);
             }
-                catch (SQLException ex){
-                Logger.getLogger(launch.class.getName())
-                    .log(Level.SEVERE, null, ex);   
+                catch (SQLException error){
+                Logger.getLogger(launch.class.getName()).log(Level.SEVERE, null, error);   
                 }
             }
         });
