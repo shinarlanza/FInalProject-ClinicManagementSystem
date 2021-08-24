@@ -158,16 +158,20 @@ public class main extends javax.swing.JFrame {
     private void jButtonStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonStatusActionPerformed
         try {
             new Status().setVisible(true);
-        } catch (SQLException ex) {
-            Logger.getLogger(main.class.getName()).log(Level.SEVERE, null, ex);
+        } 
+        
+        catch (SQLException error) {
+            Logger.getLogger(main.class.getName()).log(Level.SEVERE, null, error);
         }
     }//GEN-LAST:event_jButtonStatusActionPerformed
 
     private void jButtonPatientInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPatientInfoActionPerformed
         try {
             new PatientInfo().setVisible(true);
-        } catch (SQLException ex) {
-            Logger.getLogger(main.class.getName()).log(Level.SEVERE, null, ex);
+        } 
+        
+        catch (SQLException error) {
+            Logger.getLogger(main.class.getName()).log(Level.SEVERE, null, error);
         }
     }//GEN-LAST:event_jButtonPatientInfoActionPerformed
 
@@ -187,25 +191,33 @@ public class main extends javax.swing.JFrame {
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } 
+        
+        catch (ClassNotFoundException error) {
+            java.util.logging.Logger.getLogger(main.class.getName()).log(java.util.logging.Level.SEVERE, null, error);
+        } 
+        
+        catch (InstantiationException error) {
+            java.util.logging.Logger.getLogger(main.class.getName()).log(java.util.logging.Level.SEVERE, null, error);
+        } 
+        
+        catch (IllegalAccessException error) {
+            java.util.logging.Logger.getLogger(main.class.getName()).log(java.util.logging.Level.SEVERE, null, error);
+        } 
+        
+        catch (javax.swing.UnsupportedLookAndFeelException error) {
+            java.util.logging.Logger.getLogger(main.class.getName()).log(java.util.logging.Level.SEVERE, null, error);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-            try{
-                new main().setVisible(true);
-            }
-            catch(SQLException ex){
-                 Logger.getLogger(main.class.getName()).log(Level.SEVERE, null, ex);
+                try {
+                    new main().setVisible(true);
+                }
+                catch(SQLException error) {
+                 Logger.getLogger(main.class.getName()).log(Level.SEVERE, null, error);
                 }
             }
         });
