@@ -353,15 +353,15 @@ public class register extends javax.swing.JFrame {
     private void btnRegCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegCancelActionPerformed
         int a = JOptionPane.showConfirmDialog(null,"Cancel Register?", 
                "Select", JOptionPane.YES_NO_OPTION);
-        try{
+        try {
            
-            if (a == 0){
+            if (a == 0) {
             new launch().setVisible(true);
             }
         }
         
-        catch(SQLException ex){
-           Logger.getLogger(register.class.getName()).log(Level.SEVERE, null, ex);
+        catch (SQLException error) {
+           Logger.getLogger(register.class.getName()).log(Level.SEVERE, null, error);
         }
     }//GEN-LAST:event_btnRegCancelActionPerformed
 
@@ -389,50 +389,50 @@ public class register extends javax.swing.JFrame {
         
         try {
             
-            if(regUser.equals("")){
+            if (regUser.equals("")) {
                 JOptionPane.showMessageDialog(this, "Name field is empty!");
             }
             
-            else if (regUser.matches(".*\\d.*")){                  
+            else if (regUser.matches(".*\\d.*")) {                  
                 JOptionPane.showMessageDialog(this, "There is a number in your name!");   
             }
             
-            else if(username.equals("")){
+            else if (username.equals("")) {
                 JOptionPane.showMessageDialog(this, "Username field is empty!");
             }
             
-            else if(dbConnection.ifUsernameExist(username)){                
+            else if (dbConnection.ifUsernameExist(username)) {                
                 JOptionPane.showMessageDialog(this, "Username already taken!");            
             }
             
-            else if (pass.equals("")){
+            else if (pass.equals("")) {
                 JOptionPane.showMessageDialog(this, "Password field is empty!");       
             }
             
-            else if (retypePW.equals("")){
+            else if (retypePW.equals("")) {
                 JOptionPane.showMessageDialog(this, "Retype password again!");
             }
             
-            else if (!pass.equals(retypePW)){
+            else if (!pass.equals(retypePW)) {
                 JOptionPane.showMessageDialog(this, "Password do not match!");
             }
             
-            else if (birthdate.equals("")){
+            else if (birthdate.equals("")) {
                 JOptionPane.showMessageDialog(this,"Birthday field is empty");
             }
             
-            else if (address.equals("")){
+            else if (address.equals("")) {
                 JOptionPane.showMessageDialog(this, "Address field is empty");
             }
             
-            else if(contactNo.equals("")){
+            else if(contactNo.equals("")) {
                 JOptionPane.showMessageDialog(this,"Contact no. field is empty!");
             }
             
-            else if (gender.equals("")){
+            else if (gender.equals("")) {
                 JOptionPane.showMessageDialog(this,"Gender field is empty!");
             } 
-            else{
+            else {
                 database.insertData(regUser,username,pass,age,birthdate,address,
                     contactNo,bloodType,gender);
                 JOptionPane.showMessageDialog(this,"Registered Successfully");
@@ -440,8 +440,8 @@ public class register extends javax.swing.JFrame {
           
         }
         
-        catch (SQLException ex){
-             Logger.getLogger(register.class.getName()).log(Level.SEVERE, null, ex);
+        catch (SQLException error) {
+             Logger.getLogger(register.class.getName()).log(Level.SEVERE, null, error);
         }
         
     }//GEN-LAST:event_btnRegRegisterActionPerformed
@@ -489,14 +489,22 @@ public class register extends javax.swing.JFrame {
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(register.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(register.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(register.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(register.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } 
+        
+        catch (ClassNotFoundException error) {
+            java.util.logging.Logger.getLogger(register.class.getName()).log(java.util.logging.Level.SEVERE, null, error);
+        } 
+        
+        catch (InstantiationException error) {
+            java.util.logging.Logger.getLogger(register.class.getName()).log(java.util.logging.Level.SEVERE, null, error);
+        } 
+        
+        catch (IllegalAccessException error) {
+            java.util.logging.Logger.getLogger(register.class.getName()).log(java.util.logging.Level.SEVERE, null, error);
+        } 
+        
+        catch (javax.swing.UnsupportedLookAndFeelException error) {
+            java.util.logging.Logger.getLogger(register.class.getName()).log(java.util.logging.Level.SEVERE, null, error);
         }
         //</editor-fold>
 
@@ -505,8 +513,10 @@ public class register extends javax.swing.JFrame {
             public void run() {
                 try {
                     new register().setVisible(true);
-                } catch (SQLException ex) {
-                    Logger.getLogger(register.class.getName()).log(Level.SEVERE, null, ex);
+                } 
+                
+                catch (SQLException error) {
+                    Logger.getLogger(register.class.getName()).log(Level.SEVERE, null, error);
                 }
             }
         });
