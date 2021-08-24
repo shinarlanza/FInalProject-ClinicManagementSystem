@@ -209,23 +209,23 @@ public class setAppointment extends javax.swing.JFrame {
         
         
         try { 
-            if(doctor.equals("") && patient.equals("") && daySched.equals("")){
+            if (doctor.equals("") && patient.equals("") && daySched.equals("")){
                 JOptionPane.showMessageDialog(this, "Please fill all field");
             }
-            else if(doctor.matches(".*\\d.*") && patient.matches(".*\\d.*")&&
+            else if (doctor.matches(".*\\d.*") && patient.matches(".*\\d.*")&&
                 daySched.matches(".*\\d.*")){
                 JOptionPane.showMessageDialog(this, "Invalid input!");            
             }
-            else{
+            else {
                 database.insertAppointment(patient, doctor, daySched);
                 JOptionPane.showMessageDialog(this, "Succesfully set an "+
                     "appointment!");
             }  
           } 
             
-        catch(SQLException ex) {
+        catch (SQLException error) {
             Logger.getLogger(setAppointment.class.getName()).log(Level.SEVERE, 
-                null, ex);
+                null, error);
         } 
                             
     
@@ -245,16 +245,16 @@ public class setAppointment extends javax.swing.JFrame {
             ResultSet result=statement.executeQuery();
             jTable1.setModel(DbUtils.resultSetToTableModel(result));
             
-            if(!result.first()){
+            if (!result.first()) {
                  JOptionPane.showMessageDialog(this, "Sorry! Not Available!");
             }
-            else{                 
+            else {                 
                  jTextFieldSearch.setEditable(true);
                  flag=1;
             }
         }
-        catch(SQLException ex){
-            JOptionPane.showMessageDialog(null,ex);
+        catch (SQLException error) {
+            JOptionPane.showMessageDialog(null, error);
         }
         
     }//GEN-LAST:event_jButtonSearchActionPerformed
@@ -273,14 +273,22 @@ public class setAppointment extends javax.swing.JFrame {
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(setAppointment.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(setAppointment.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(setAppointment.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(setAppointment.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } 
+        
+        catch (ClassNotFoundException error) {
+            java.util.logging.Logger.getLogger(setAppointment.class.getName()).log(java.util.logging.Level.SEVERE, null, error);
+        } 
+        
+        catch (InstantiationException error) {
+            java.util.logging.Logger.getLogger(setAppointment.class.getName()).log(java.util.logging.Level.SEVERE, null, error);
+        } 
+        
+        catch (IllegalAccessException error) {
+            java.util.logging.Logger.getLogger(setAppointment.class.getName()).log(java.util.logging.Level.SEVERE, null, error);
+        } 
+        
+        catch (javax.swing.UnsupportedLookAndFeelException error) {
+            java.util.logging.Logger.getLogger(setAppointment.class.getName()).log(java.util.logging.Level.SEVERE, null, error);
         }
         //</editor-fold>
 
@@ -289,8 +297,8 @@ public class setAppointment extends javax.swing.JFrame {
             public void run() {
                 try {
                     new setAppointment().setVisible(true);
-                } catch (SQLException ex) {
-                    Logger.getLogger(setAppointment.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (SQLException error) {
+                    Logger.getLogger(setAppointment.class.getName()).log(Level.SEVERE, null, error);
                 }
             }
         });
